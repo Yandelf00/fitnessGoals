@@ -37,6 +37,16 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+
+    'tailwind',
+    'theme',
+    'CM',
+]
+
+TAILWIND_APP_NAME = 'theme'
+
+INTERNAL_IPS = [
+    "127.0.0.1",
 ]
 
 MIDDLEWARE = [
@@ -97,6 +107,17 @@ AUTH_PASSWORD_VALIDATORS = [
     {
         'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
     },
+]
+
+
+AUTH_USER_MODEL = "CM.Agent"
+
+LOGIN_URL = "login"
+LOGIN_REDIRECT_URL = "home"
+
+AUTHENTICATION_BACKENDS = [
+    'CM.authentication.CustomAuth',
+    'django.contrib.auth.backends.ModelBackend',  # Keep the default backend
 ]
 
 
